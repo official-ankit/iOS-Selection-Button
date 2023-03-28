@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ListViewController" id="BYZ-38-t0r" customClass="ListViewController" customModule="SingleSelectionRadioBtn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-Pa-NU3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D8V-K9-jU5">
+                                        <rect key="frame" x="0.0" y="106" width="414" height="712"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fy4-qN-V13">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="dXE-QQ-y2a"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="63X-Ak-BtU"/>
+                                        </connections>
+                                    </collectionView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-pr-Ho4">
+                                        <rect key="frame" x="78.5" y="38" width="257" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="L0S-qr-zDi"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Single Selection"/>
+                                            <segment title="Multiple selection"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" red="1" green="0.73188711449999999" blue="0.62437633579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentedBtnPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="aDK-eE-8wO"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="D8V-K9-jU5" firstAttribute="top" secondItem="Zif-pr-Ho4" secondAttribute="bottom" constant="8" symbolic="YES" id="3tR-YV-6qz"/>
+                                    <constraint firstItem="D8V-K9-jU5" firstAttribute="leading" secondItem="h5E-Pa-NU3" secondAttribute="leading" id="Ahf-5K-aiC"/>
+                                    <constraint firstItem="Zif-pr-Ho4" firstAttribute="centerX" secondItem="h5E-Pa-NU3" secondAttribute="centerX" id="FhH-c8-prr"/>
+                                    <constraint firstItem="Zif-pr-Ho4" firstAttribute="top" secondItem="h5E-Pa-NU3" secondAttribute="top" constant="38" id="RqJ-UK-tEn"/>
+                                    <constraint firstAttribute="trailing" secondItem="D8V-K9-jU5" secondAttribute="trailing" id="mWp-uG-aqx"/>
+                                    <constraint firstAttribute="bottom" secondItem="D8V-K9-jU5" secondAttribute="bottom" id="z5S-NZ-eRM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h5E-Pa-NU3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bz1-a6-kTS"/>
+                            <constraint firstItem="h5E-Pa-NU3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dvz-15-lf2"/>
+                            <constraint firstItem="h5E-Pa-NU3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xsj-CB-gkj"/>
+                            <constraint firstItem="h5E-Pa-NU3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z43-bE-qDR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listCollectionView" destination="D8V-K9-jU5" id="wuq-fe-mHH"/>
+                        <outlet property="segmentedController" destination="Zif-pr-Ho4" id="pkt-p5-oWF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2.8985507246376816" y="76.339285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
